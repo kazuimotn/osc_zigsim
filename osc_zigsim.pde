@@ -7,7 +7,7 @@ PVector gyro;
 float volume = 0;
  
 void setup() {
-  size(500,500);
+  size(1280,800);
   frameRate(30);
   oscP5 = new OscP5(this,50000);
   accel = new PVector(0,0,0);
@@ -15,9 +15,18 @@ void setup() {
 }
  
 void draw() {
-  background(int(50*gyro.x), int(50*gyro.y), int(50*gyro.z));
-  fill(int(200*accel.x), int(200*accel.y), int(200*accel.z));
-  ellipse(int(100*accel.x)+250, int(100*accel.y)+250, 10*volume, 10*volume);
+  
+  background(int(10*gyro.x), int(10*gyro.y), int(10*gyro.z));
+  
+  fill(int(100*accel.x), int(150*accel.y), int(200*accel.z));
+  ellipse(int(100*accel.x)+640, int(100*accel.y)+320, 10*volume, 10*volume);
+  
+  fill(int(200*accel.z), int(100*accel.x), int(150*accel.y));
+  ellipse(int(100*accel.y)+640, int(100*accel.z)+320, 20*volume, 20*volume);
+  
+  fill(int(150*accel.y), int(200*accel.z), int(100*accel.x));
+  ellipse(int(100*accel.z)+640, int(100*accel.x)+320, 30*volume, 30*volume);
+
 }
  
 void oscEvent(OscMessage msg) {
